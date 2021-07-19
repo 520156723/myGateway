@@ -1,0 +1,27 @@
+server:
+  port: 8040
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    # 让gateway服务自动找到注册到nacos的其他微服务
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+# actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+  # 显示健康详情
+  endpoint:
+    health:
+      show-details: always
+

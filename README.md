@@ -32,3 +32,21 @@
   例子：localhost:8040/user-center/users/1
 
   会转发到user-center用户的/users/1接口
+  
+ - 概念
+    - Route路由
+        一条转发规则
+    - 谓词
+        控制请求是不是走转发规则的条件
+    - 过滤器
+        为路由添加业务逻辑，修改请求及相应
+        
+ - 源码
+    - Handler Mapping: org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping
+    - Web Handler: org.springframework.web.server.handler.FilteringWebHandler
+ 
+ - [路由谓词](https://www.imooc.com/article/290804)
+    - 时间相关
+    - Cookie相关
+    - Header相关
+    - 请求相关

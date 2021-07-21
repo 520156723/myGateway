@@ -8,7 +8,7 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-    # ÈÃgateway·şÎñ×Ô¶¯ÕÒµ½×¢²áµ½nacosµÄÆäËûÎ¢·şÎñ
+    # è®©gatewayæœåŠ¡è‡ªåŠ¨æ‰¾åˆ°æ³¨å†Œåˆ°nacosçš„å…¶ä»–å¾®æœåŠ¡
     gateway:
       discovery:
         locator:
@@ -17,12 +17,11 @@ spring:
         - id: after_route
           uri: lb://user-center
           predicates:
-            # µ±ÇÒ½öµ±ÇëÇóÊ±µÄÊ±¼äAfterÅäÖÃµÄÊ±¼äÊ±£¬²Å»á×ª·¢µ½ÓÃ»§Î¢·şÎñ
-            # Ä¿Ç°ÅäÖÃ²»»á½ø¸ÃÂ·ÓÉÅäÖÃ£¬ËùÒÔ·µ»Ø404
-            # ½«Ê±¼ä¸Ä³É < nowµÄÊ±¼ä£¬Ôò·ÃÎÊlocalhost:8040/** -> user-center/**
-            # eg. ·ÃÎÊhttp://localhost:8040/users/1 -> user-center/users/1
-            - After=2020-01-20T17:42:47.789-07:00[America/Denver]
-
+            # å½“ä¸”ä»…å½“è¯·æ±‚æ—¶çš„æ—¶é—´åœ¨é…ç½®çš„æ—¶é—´æ—¶ï¼Œæ‰ä¼šè½¬å‘åˆ°ç”¨æˆ·å¾®æœåŠ¡
+            # ç›®å‰é…ç½®ä¸ä¼šè¿›è¯¥è·¯ç”±é…ç½®ï¼Œæ‰€ä»¥è¿”å›404
+            # eg. è®¿é—®http://localhost:8040/users/1 -> user-center/users/1
+            # å¯¹åº”ç±»TimeBetweenRoutePredicateFactoryã€TimeBetweenConfig
+            - TimeBetween=ä¸Šåˆ9:00, ä¸‹åˆ11:00
 
 # actuator
 management:
@@ -30,8 +29,7 @@ management:
     web:
       exposure:
         include: '*'
-  # ÏÔÊ¾½¡¿µÏêÇé
+  # æ˜¾ç¤ºå¥åº·è¯¦æƒ…
   endpoint:
     health:
       show-details: always
-

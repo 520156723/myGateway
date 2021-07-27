@@ -90,4 +90,11 @@
         - 拿到响应
             exchange.getResponse()
  - [全局过滤器](https://www.imooc.com/article/290821)
-    
+  
+ - [监控](https://www.imooc.com/article/290822)
+    - http://localhost:8040/actuator/gateway/globalfilters
+        查看全局的过滤器，后面是优先级，越小越优先
+    - http://localhost:8040/actuator/gateway/routefilters
+        所有的过滤器工厂
+    - **http://localhost:8040/actuator/gateway/routes**
+        路由详情

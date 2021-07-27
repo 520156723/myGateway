@@ -21,7 +21,7 @@ spring:
             # 目前配置不会进该路由配置，所以返回404
             # eg. 访问http://localhost:8040/users/1 -> user-center/users/1
             # 对应类TimeBetweenRoutePredicateFactory、TimeBetweenConfig
-            - TimeBetween=上午9:00, 下午11:40
+            - TimeBetween=上午0:00, 下午11:59
           filters:
             - PreLog=a, b
 # actuator

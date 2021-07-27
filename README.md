@@ -56,4 +56,36 @@
     - 添加解析配置类，继承了抽象类，实现方法
     
  - [内置路由工厂](https://www.imooc.com/article/290816)
-   
+ 
+ - 自定义过滤工厂
+    - 生命周期
+        - pre: Gateway转发请求之前
+        - post: Gateway转发请求之后
+    - 方式
+        - 1继承AbstractGatewayFilterFactory
+            - 参考RequestSizeGatewayFilterFactory编写
+            - 配置格式
+                ```
+              filters:
+                   - name: RequestSize
+                     args:
+                        maxSize: 50000
+                ```
+        - 2继承AbstractNameValueGatewayFilterFactory
+            - 参考AddRequestHeaderGatewayFilterFactory编写
+            - 配置格式
+                ```
+                filters:
+                     - AddRequestHeader=X-Request-Foo, Bar
+                ```
+    - 核心API
+        - 修改request
+            exchange.getRequest().mutate().xxx
+            其中的exchange指的是继承了ServerWebExchange的类
+        - 修改exchange
+            exchange.mutate().xxx
+        - 传递给下一个过滤器处理
+            chain.filter(exchange)
+            chain指继承了GatewayFilterChain的类DefaultGatewayFilterChain
+        - 拿到响应
+            exchange.getResponse()

@@ -98,3 +98,5 @@
         所有的过滤器工厂
     - **http://localhost:8040/actuator/gateway/routes**
         路由详情
+  
+ - [限流](https://www.imooc.com/article/290828)

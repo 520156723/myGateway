@@ -22,7 +22,9 @@ spring:
             # eg. 访问http://localhost:8040/users/1 -> user-center/users/1
             # 对应类TimeBetweenRoutePredicateFactory、TimeBetweenConfig
             - TimeBetween=上午9:00, 下午11:00
-
+          filters:
+            # 访问网关会向请求中添加 header：X-Request-Foo value为Bar
+            - AddRequestHeader=X-Request-Foo, Bar
 # actuator
 management:
   endpoints:

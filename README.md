@@ -89,3 +89,5 @@
             chain指继承了GatewayFilterChain的类DefaultGatewayFilterChain
         - 拿到响应
             exchange.getResponse()
+ - [全局过滤器](https://www.imooc.com/article/290821)
+    
